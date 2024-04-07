@@ -15,3 +15,20 @@
 5. No. of Symbols (Nsymb)
 
 ## How to Calculated Transport Block Size
+
+1. The UE determines the no. of REs Nre' which are available for data transfer within the bandwidth of a single Resource Block using following formula
+
+![image](https://github.com/KRIISHSHARMA/TBS/assets/86760658/2d36858c-a954-4098-ae97-073e4468c5c7)
+
+- where
+
+
+![image](https://github.com/KRIISHSHARMA/TBS/assets/86760658/c29d4f0c-65a4-446e-95dd-334eeb75dc5e)
+
+2. If the value of Nre' is greater than 156 then Nre' is rounded down to 156, i.e. `the UE never assumes a resource allocation of more than 156 REs  within the bandwidth of a single Resource Block`. The total number of REs within the bandwidth of a single RB is 12 x 14 = 168 using normal cyclic prefix.
+3. The final Nre' value is multiplied by the number of allocated Resource Blocks to generate a value for Nre . The number of allocated RBs is extracted from the DCI available through PDCCH, i.e. it is part of the  resource allocation.
+
+![image](https://github.com/KRIISHSHARMA/TBS/assets/86760658/16fe7e4b-6ac1-47bf-bbd7-b03632a82dab)
+
+4. `The value of Nre represents the total no. of REs available for data transfer`
+5. The total no. of REs available for data transfer is then converted into a no. of information bits. The no. of information bits depends upon the modulation scheme, the coding rate and the number of layers, i.e. the use of MIMO. The UE uses the following equation standardized by 3GPP .
