@@ -131,11 +131,5 @@ private:
     }
 };
 
-/* int main() {
-    hello();
-    PDSCHCalculator calculator;
-    calculator.calculatePDSCH();
-    return 0;
-} */
 
 #endif
