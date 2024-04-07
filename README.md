@@ -16,6 +16,9 @@
 
 ## How to Calculated Transport Block Size
 
+
+![image](https://github.com/KRIISHSHARMA/TBS/assets/86760658/d9993b0f-ea49-44df-a957-8e0f952a7d91)
+
 1. The UE determines the no. of REs Nre' which are available for data transfer within the bandwidth of a single Resource Block using following formula
 
 ![image](https://github.com/KRIISHSHARMA/TBS/assets/86760658/2d36858c-a954-4098-ae97-073e4468c5c7)
@@ -31,4 +34,7 @@
 ![image](https://github.com/KRIISHSHARMA/TBS/assets/86760658/16fe7e4b-6ac1-47bf-bbd7-b03632a82dab)
 
 4. `The value of Nre represents the total no. of REs available for data transfer`
-5. The total no. of REs available for data transfer is then converted into a no. of information bits. The no. of information bits depends upon the modulation scheme, the coding rate and the number of layers, i.e. the use of MIMO. The UE uses the following equation standardized by 3GPP .
+5. The total no. of REs available for data transfer is then converted into a `no. of information bits`. **The no. of information bits depends upon the modulation scheme, the coding rate and the number of layers, i.e. the use of MIMO. The UE uses the following equation standardized by 3GPP** .
+
+
+![image](https://github.com/KRIISHSHARMA/TBS/assets/86760658/8283de42-4523-422b-a140-06002dad0b70)
