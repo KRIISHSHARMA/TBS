@@ -38,3 +38,29 @@
 
 
 ![image](https://github.com/KRIISHSHARMA/TBS/assets/86760658/8283de42-4523-422b-a140-06002dad0b70)
+
+6. The Modulation Order and Target Code Rate are both extracted from an [MCS table](https://www.techplayon.com/5g-nr-modulation-and-coding-scheme-modulation-and-code-rate/)
+7. If Ninfo <= 3824 bits, then TBS is determined based on 3GPP 38.214  - Table 5.1.3.2-1: TBS for N_info <= 3824 and if not then TBS is determined Based on Formula. The detailed step are shown in below flow chart to determine the TBS.
+
+
+![image](https://github.com/KRIISHSHARMA/TBS/assets/86760658/c3ca71b4-999c-4aa1-9c7c-16bc20438bbb)
+
+- The threshold of 3824 bit is based upon the maximum code block size of 3840 bits which can be processed by LDPC channel coding .
+
+8. When Ninfo > 3824 then a 24 bit CRC will be added rather than a 16 bit CRC. In addition, segmentation may be required prior to channel coding. When segmentation is applied, an additional 24 bit CRC is added to each segment. The following calculations account for these 24 bit CRC. Ninfo'  is calculated as:
+
+![image](https://github.com/KRIISHSHARMA/TBS/assets/86760658/2cc9564d-573e-474b-836e-42792896bf7f)
+
+9. The transport block size is then calculated using one of three equations:
+   1. If Code Rate <= 0.25 then LDPC ‘Base Graph 2’ will be used (maximum code block size of 3816 + 24 = 3840 bits) and the following equation is applied:
+
+  ![image](https://github.com/KRIISHSHARMA/TBS/assets/86760658/44eb7e49-e035-41c9-be12-2fa09df4091c)
+
+  2. Else if N'info > 8424 bits then LDPC ‘Base Graph I’ will be used (maximum code block size of 8424 + 24 = 8448 bits) and the following equation is applied.
+
+  ![image](https://github.com/KRIISHSHARMA/TBS/assets/86760658/ebb0474f-e728-451f-a2b3-dd6aec4ebc5e)
+
+  3. Else the following equation is applied:
+
+
+![image](https://github.com/KRIISHSHARMA/TBS/assets/86760658/c14b9608-d63c-4b07-8edf-92f39e1ff7bd)
