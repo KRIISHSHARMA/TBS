@@ -65,30 +65,30 @@ public:
         std::cout << "Intermediate number of information bits are " << N_info << std::endl;
         float TBS ;
         if (N_info <= 3824) {
-            int n = std::max(3, static_cast<int>(std::log2(N_info)) - 6);
-            int N_info_quant_1 = std::max(24, static_cast<int>(std::pow(2, n)) * static_cast<int>(std::floor(N_info / std::pow(2, n))));
+            int n = std::max(3, std::log2(N_info) - 6);
+            int N_info_quant_1 = std::max(24,  (std::pow(2, n)) * std::floor(N_info / std::pow(2, n)));
             std::cout << "Quantized intermediate number of information bits: " << N_info_quant_1 << std::endl;
         } else {
-            int n = static_cast<int>(std::log2(N_info - 24)) - 5;
-            int N_info_quant = static_cast<int>(std::pow(2, n)) * static_cast<int>(std::round((N_info - 24) / std::pow(2, n)));
+            int n =  (std::log2(N_info - 24)) - 5;
+            int N_info_quant =  (std::pow(2, n)) *  (std::round((N_info - 24) / std::pow(2, n)));
             std::cout << "Quantized intermediate number of information bits: " << N_info_quant << std::endl;
 
             if (Code_Rate <= 0.25) {
                 std::cout << "\ncode rate <= 0.25\n";
                 int C = ceil((N_info_quant + 24) / 3816.0);
                 TBS = 8 * C * ceil((N_info_quant + 24) / (8 * C)) - 24;
-                std::cout << "\nTransport Block Size: " <<TBS<<" bits";
+                std::cout << "\nTransport Block Size: " <<TBS<<" bits\n";
             } else {
                 std::cout << "\ncode rate > 0.25\n";
                 if (N_info_quant >= 8424) {
                     std::cout << "\nQuantized intermediate number of information bits >= 8424\n"; 
                     float C = ceil((N_info_quant + 24) / 8424.0);
                     TBS = 8 * C * ceil((N_info_quant + 24) / (8 * C)) - 24;
-                    std::cout << "\nTransport Block Size: " <<TBS<<" bits";
+                    std::cout << "\nTransport Block Size: " <<TBS<<" bits\n";
                 } else {
                     std::cout << "\nQuantized intermediate number of information bits < 8424\n";
                     TBS = 8 * ceil((N_info_quant + 24) / 8) - 24;
-                    std::cout << "\nTransport Block Size: " <<TBS<<"bits";
+                    std::cout << "\nTransport Block Size: " <<TBS<<"bits\n";
                 }
             }
         }
@@ -152,4 +152,5 @@ int main() {
     calculator.calculatePDSCH();
     return 0;
 } 
+
 
