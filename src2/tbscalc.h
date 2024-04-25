@@ -45,7 +45,7 @@ public:
         
         std::cout << "Number of symbols of the PDSCH allocation within the slot: ";
         std::cin >> Nsh_Sym;
-        
+
         // DMRS CONFIG
 
         std::cout << "DMRS Single or Double symbol: ";
@@ -67,12 +67,12 @@ public:
         std::cout << "Intermediate number of information bits are " << N_info << std::endl;
         float TBS ;
         if (N_info <= 3824) {
-            int n = std::max(3, static_cast<int>(std::log2(N_info)) - 6);
-            int N_info_quant_1 = std::max(24, static_cast<int>(std::pow(2, n)) * static_cast<int>(std::floor(N_info / std::pow(2, n))));
+            int n = std::max(3, (std::log2(N_info)) - 6);
+            int N_info_quant_1 = std::max(24, (std::pow(2, n)) * (std::floor(N_info / std::pow(2, n))));
             std::cout << "Quantized intermediate number of information bits: " << N_info_quant_1 << std::endl;
         } else {
-            int n = static_cast<int>(std::log2(N_info - 24)) - 5;
-            int N_info_quant = static_cast<int>(std::pow(2, n)) * static_cast<int>(std::round((N_info - 24) / std::pow(2, n)));
+            int n = (std::log2(N_info - 24)) - 5;
+            int N_info_quant = (std::pow(2, n)) * (std::round((N_info - 24) / std::pow(2, n)));
             std::cout << "Quantized intermediate number of information bits: " << N_info_quant << std::endl;
 
             if (Code_Rate <= 0.25) {
